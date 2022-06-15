@@ -88,11 +88,6 @@ export default function Notes() {
                     </RadioGroup>
                 </FormControl>
 
-
-
-
-
-
                 <Button
                     type='submit'
                     color='secondary'
