@@ -9,9 +9,9 @@ export default function Create() {
     const navi = useNavigate()
 
     const [title, setTitle] = useState('');
-    const [detail, setDetail] = useState('');
+    const [details, setDetails] = useState('');
     const [titleErr, setTitleErr] = useState(false);
-    const [detailErr, setDetailErr] = useState(false);
+    const [detailsErr, setDetailsErr] = useState(false);
     const [category, setCategory] = useState('money')
 
     const handleSubmit = (e) => {
@@ -23,17 +23,17 @@ export default function Create() {
             setTitleErr(true)
         }
 
-        if (detail) {
-            setDetailErr(false)
+        if (details) {
+            setDetailsErr(false)
         } else {
-            setDetailErr(true)
+            setDetailsErr(true)
         }
 
-        if (title && detail) {
+        if (title && details) {
             fetch('http://localhost:8000/notes', {
                 method: 'POST',
                 headers: { "Content-type": "application/json" },
-                body: JSON.stringify({ title, detail, category })
+                body: JSON.stringify({ title, details, category })
             }).then(() => navi('/'))
         } else {
             console.log('false')
@@ -65,7 +65,7 @@ export default function Create() {
                     error={titleErr}
                 />
                 <TextField
-                    onChange={(e) => setDetail(e.target.value)}
+                    onChange={(e) => setDetails(e.target.value)}
                     sx={{
                         my: 3,
                         display: 'block'
@@ -77,7 +77,7 @@ export default function Create() {
                     required
                     multiline
                     rows={5}
-                    error={detailErr}
+                    error={detailsErr}
                 />
 
                 <FormControl

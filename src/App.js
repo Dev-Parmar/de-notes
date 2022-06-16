@@ -5,10 +5,11 @@ import {
   Routes,
   Route
 } from "react-router-dom";
-import Notes from './components/Notes';
-import Create from './components/Create';
+import Notes from './pages/Notes';
+import Create from './pages/Create';
 import { createTheme, ThemeProvider } from '@mui/material'
 import { red } from '@mui/material/colors';
+import Layout from './components/Layout';
 
 function App() {
 
@@ -20,12 +21,14 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <Router >
-        <Routes>
-          <Route path="/" element={<Notes />}>
-          </Route>
-          <Route path="/create" element={<Create />}>
-          </Route>
-        </Routes>
+        <Layout>
+          <Routes>
+            <Route path="/" element={<Notes />}>
+            </Route>
+            <Route path="/create" element={<Create />}>
+            </Route>
+          </Routes>
+        </Layout>
       </Router >
     </ThemeProvider>
   );
