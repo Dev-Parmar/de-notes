@@ -2,20 +2,30 @@ import React from 'react'
 import { Card, CardHeader, CardContent, Typography, Avatar } from '@mui/material';
 import { IconButton } from '@mui/material';
 import { DeleteOutlined } from '@mui/icons-material';
+import { blue, green, pink, yellow } from '@mui/material/colors';
 
 export default function NoteCard({ note, handleDelete }) {
     return (
-        <Card sx={{
-            border: note.category === 'work' ? '1px solid red' : null
-        }}>
+        <Card >
             <CardHeader
                 avatar={
-                    <Avatar>{note.category[0].toUpperCase()}</Avatar>
+                    <Avatar sx={{
+                        backgroundColor: blue[500],
+                        ...(note.category === 'work' && {
+                            backgroundColor: yellow[700],
+                        }),
+                        ...(note.category === 'money' && {
+                            backgroundColor: green[500],
+                        }),
+                        ...(note.category === 'todos' && {
+                            backgroundColor: pink[500],
+                        })
+                    }} > {note.category[0].toUpperCase()}</Avatar>
                 }
                 action={
-                    <IconButton onClick={() => handleDelete(note.id)}>
+                    < IconButton onClick={() => handleDelete(note.id)}>
                         <DeleteOutlined />
-                    </IconButton>
+                    </IconButton >
                 }
                 title={note.title}
                 subheader={note.category.charAt(0).toUpperCase() + note.category.slice(1)}
