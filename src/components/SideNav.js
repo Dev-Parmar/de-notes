@@ -47,7 +47,7 @@ export default function SideNav() {
 
                     <Typography variant='h5' sx={{
                         padding: {
-                            sm: 3
+                            sm: 2
                         }
                     }}>
                         De Notes

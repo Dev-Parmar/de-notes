@@ -26,7 +26,7 @@ export default function Create() {
 
     return (
         <Container>
-            <Grid container spacing={2}>
+            <Grid container spacing={2} alignItems='center'>
                 {notes.map(note => (
                     <Grid item key={note.id} md={6} lg={4} xs={12}>
                         <NoteCard note={note} handleDelete={handleDelete} />
